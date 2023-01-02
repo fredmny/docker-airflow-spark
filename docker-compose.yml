@@ -1,0 +1,20 @@
+---
+version: '1.0'
+
+services:
+  airflow:
+    tty: true
+    image: airflow-fred:latest
+    container_name: airflow
+    environment:
+      USER_ID: '${LOCAL_USER_ID:-9009}'
+      GOOGLE_APPLICATION_CREDENTIALS: /home/user/external-key.json
+    volumes:
+      - ./external-key.json:/home/user/external-key.json
+      - ./airflow/dags:/home/user/airflow/dags
+      - ./airflow/plugins:/home/user/airflow/plugins
+      - ./airflow/logs:/home/user/logs
+      - ./spark:/home/user/airflow/spark
+    ports:
+      - '8080:8080' # Airflow webserver
+      - '9001:9001' # Supervisord web interface

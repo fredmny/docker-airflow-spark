@@ -1,0 +1,10 @@
+apache-airflow==2.3.0
+Flask==1.1.4
+tzlocal==1.5.1
+pyspark==3.3.1
+argparse==1.4.0
+psycopg2-binary==2.9.3
+pandas==1.4.2
+boto3>=1.14.57
+apache-airflow-providers-apache-spark==4.0.0
+apache-airflow-providers-amazon==6.2.0
